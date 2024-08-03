@@ -22,14 +22,16 @@ images.forEach((img) =>{
 				let targetElement = e.target;
                 let draggedElementId = e.dataTransfer.getData("text/plain");
                 let draggedElement = document.getElementById(draggedElementId);
-				
-                let tempId = targetElement.id;
-				targetElement.id = draggedElement.id;
-				draggedElement.id = tempId;
 
-				let tempText = targetElement.innerText;
-				targetElement.innerText = draggedElement.innerText;
-				draggedElement.innerText = tempText;
+				if(targetElement!=draggedElement){
+	                let tempId = targetElement.id;
+					targetElement.id = draggedElement.id;
+					draggedElement.id = tempId;
+	
+					let tempText = targetElement.innerText;
+					targetElement.innerText = draggedElement.innerText;
+					draggedElement.innerText = tempText;
+				}
 				
 			}
 		})
